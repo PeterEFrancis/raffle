@@ -108,7 +108,9 @@
     function get_result(){
       var input = document.getElementById('input').value;
       // window.open('/output/'+input, '_blank');
-      document.getElementById('output').src = '/output/' + input;
+      if (input != ''){
+        document.getElementById('output').src = '/output/' + input;
+      }
     }
     </script>
   </body>

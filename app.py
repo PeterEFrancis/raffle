@@ -30,6 +30,7 @@ def index():
 @app.route('/output/<string:data>')
 def word(data):
     try:
+        name = ''
         DATA = re.split('(\D+)', data)[1:]
 
         number_of_people = int(len(DATA)/2)
@@ -44,8 +45,10 @@ def word(data):
         name = NAMES[choose_random_index(NUMBERS/sum(NUMBERS))]
     except:
         error = sys.exc_info()[1]
-        return render_template('output.html', name=error)
-    return render_template('output.html', name=name)
+        return render_template('output.html', name=name, error='Make sure you'
+        + ' have entered alternating words or phrases, and numbers, and a ' +
+        'number after every phrase.')
+    return render_template('output.html', name=name, error='')
 
 
 
